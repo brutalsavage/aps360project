@@ -21,17 +21,17 @@ def draw_rectangle(img, x0, y0, x1, y1, annotation_type):
 manga109_root_dir  = "C:/Users/Steven Xia/Desktop/Manga109/Manga109_2017_09_28"
 p = manga109api.Parser(root_dir=manga109_root_dir)
 
-books = p.books[0:2]
+books = p.books
 
 total_pages = 0
 good_pages = 0
 
-milestone_bubble_pixel = 50000
+milestone_bubble_pixel = 25000
 
 for book_title in books:
 
-    filepath = "small mangas/img"
-    labelpath = "small masks/mask"
+    filepath = "small mangas/"+book_title
+    labelpath = "small masks/"+book_title
 
     # Safety step
     if not os.path.exists(filepath):
