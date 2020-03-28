@@ -57,12 +57,13 @@ def predict_sb(input):
 cleaned_path = "../data cleaning/small mangas/"
 label_path = "../data cleaning/small masks/"
 
-list_of_mangas = os.listdir(cleaned_path)[0:2]
+list_of_mangas = os.listdir(cleaned_path)
 k = 0
 
 hist_accuracy = []
 
 for mangas in list_of_mangas:
+    print(mangas)
     list_of_images = os.listdir(cleaned_path+mangas+"/")
     for image_name in list_of_images:
         input_image = Image.open(cleaned_path+mangas+"/"+image_name)
@@ -79,7 +80,7 @@ for mangas in list_of_mangas:
         # label2.show()
         #exit()
         accuracy = pixel_accuracy(prediction=prediction, labeled=label)
-        print(accuracy)
+        #print(accuracy)
         hist_accuracy.append(accuracy)
 
 print(statistics.mean(hist_accuracy))
